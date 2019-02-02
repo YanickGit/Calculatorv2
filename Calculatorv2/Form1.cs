@@ -12,10 +12,31 @@ namespace Calculatorv2
 {
     public partial class frm_Calc : Form
     {
+        double Num1; //First Value
+        double Num2; //Second Value
+        string Operation;  //Operation
+        double Results; //Operation Results
+
         public frm_Calc()
         {
             InitializeComponent();
         }
+
+        /* method for sum of elements in an array  
+        static int sum(int[] arr, int n)
+        {
+
+            int sum = 0; // initialize sum 
+
+            // Iterate through all elements and  
+            // add them to sum 
+            //for (int i = 0; i < n; i++)
+                sum += arr[i];
+
+            return sum;
+        }*/
+
+        //=====> Add Value to Text Box
 
         private void btn_0_Click(object sender, EventArgs e)
         {
@@ -74,22 +95,34 @@ namespace Calculatorv2
 
         private void btn_Plus_Click(object sender, EventArgs e)
         {
-            tb_Main.Text = tb_Main.Text + "+";
+            //tb_Main.Text = tb_Main.Text + "+";
+            Num1 = Convert.ToDouble(tb_Main.Text);
+            tb_Main.Text = "";
+            Operation = "+";
         }
 
         private void btn_Minus_Click(object sender, EventArgs e)
         {
-            tb_Main.Text = tb_Main.Text + "-";
+            //tb_Main.Text = tb_Main.Text + "-";
+            Num1 = Convert.ToDouble(tb_Main.Text);
+            tb_Main.Text = "";
+            Operation = "-";
         }
 
         private void btn_Multiply_Click(object sender, EventArgs e)
         {
-            tb_Main.Text = tb_Main.Text + "*";
+            //tb_Main.Text = tb_Main.Text + "*";
+            Num1 = Convert.ToDouble(tb_Main.Text);
+            tb_Main.Text = "";
+            Operation = "*";
         }
 
         private void btn_Divide_Click(object sender, EventArgs e)
         {
-            tb_Main.Text = tb_Main.Text + "/";
+            //tb_Main.Text = tb_Main.Text + "/";
+            Num1 = Convert.ToDouble(tb_Main.Text);
+            tb_Main.Text = "";
+            Operation = "/";
         }
 
         private void btn_Clear_Click(object sender, EventArgs e)
@@ -98,6 +131,40 @@ namespace Calculatorv2
         }
 
         private void btn_Equal_Click(object sender, EventArgs e)
+        {
+            Num2 = Convert.ToDouble(tb_Main.Text);
+
+            if (Operation == "+")
+            {
+                Results = (Num1 + Num2);
+                tb_Main.Text = Convert.ToString(Results);
+                Num1 = Results;
+            }
+
+            if (Operation == "-")
+            {
+                Results = (Num1 - Num2);
+                tb_Main.Text = Convert.ToString(Results);
+                Num1 = Results;
+            }
+
+            if (Operation == "/")
+            {
+                Results = (Num1 / Num2);
+                tb_Main.Text = Convert.ToString(Results);
+                Num1 = Results;
+            }
+
+            if (Operation == "*")
+            {
+                Results = (Num1 * Num2);
+                tb_Main.Text = Convert.ToString(Results);
+                Num1 = Results;
+            }
+        }
+
+
+    private void frm_Calc_Load(object sender, EventArgs e)
         {
 
         }
